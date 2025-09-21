@@ -2,12 +2,23 @@
   "name": "odoclone-backend",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "commonjs",
+  "imports": {
+    "#config/*": "./src/config/*",
+    "#controllers/*": "./src/controllers/*",
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#services/*": "./src/services/*",
+    "#validations/*": "./src/validations/*",
+    "#utils/*": "./src/utils/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#enums/*": "./src/enums/*"
+  },
   "scripts": {
     "dev": "node --watch src/index.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/webdevstudio-lab/OdoClone.git"

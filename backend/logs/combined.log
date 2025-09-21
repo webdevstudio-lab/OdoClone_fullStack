@@ -1,0 +1,1 @@
+{"level":"info","message":"::1 - - [21/Sep/2025:01:23:02 +0000] \"GET /api HTTP/1.1\" 200 181 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"aquisitions-API","timestamp":"2025-09-21T01:23:02.052Z"}
