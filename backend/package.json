@@ -32,6 +32,8 @@
   "homepage": "https://github.com/webdevstudio-lab/OdoClone#readme",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "@prisma/extension-accelerate": "^2.0.2",
     "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
     "cloudinary": "^1.41.3",
