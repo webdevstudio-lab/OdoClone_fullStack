@@ -11,7 +11,9 @@ export const register = asyncHandler(async (req, res, next) => {
   //CREATE A USER LOGIC
   const { user } = await signUpUser(body);
 
-  //SEND A CONFIRMATION EMAIL
+  //SEND VERIFICATON CODE BY EMAIL
+
+  //RETURN RESPONSE
   logger.info(`User whith email: ${user.email} was created successfully`);
   res.status(HTTPSTATUS.CREATED).json({
     message: "L'utilisateur a été créé avec succès",

@@ -5,3 +5,7 @@
 {"level":"info","message":"::1 - - [21/Sep/2025:04:51:54 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 95 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:51:54.981Z"}
 {"level":"info","message":"User whith email: franck@gmail4.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:52:27.165Z"}
 {"level":"info","message":"::1 - - [21/Sep/2025:04:52:27 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 166 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:52:27.166Z"}
+{"level":"info","message":"User whith email: franck@gmail.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:58:22.678Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:58:22 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 165 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:58:22.686Z"}
+{"level":"info","message":"User whith email: admin@backend.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:59:13.994Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:59:13 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 165 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:59:13.996Z"}

@@ -23,6 +23,8 @@ export const signUpUser = async body => {
       );
     }
 
+    //create verification code
+
     //Hash password
     const hashedPassword = await hashValue(password);
 
