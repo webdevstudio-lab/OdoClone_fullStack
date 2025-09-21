@@ -10,6 +10,7 @@ import { errorHandler } from '#middlewares/errorHandler.middleware.js';
 import { asyncHandler } from '#middlewares/asyncHandler.middleware.js';
 import { HTTPSTATUS } from '#config/http.config.js';
 import logger from '#config/logger.js';
+import authRoutes from '#routes/auth.routes.js';
 
 const Env = envConfig();
 
@@ -41,6 +42,8 @@ app.get(
     });
   })
 );
+
+app.use(`${BASE_PATH}/auth`, authRoutes);
 
 app.use(errorHandler);
 

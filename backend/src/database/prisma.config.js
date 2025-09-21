@@ -1,7 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '../generated/prisma/client.js';
 
-const prisma = new PrismaClient();
-
+export const prisma = new PrismaClient();
 // use `prisma` in your application to read and write data in your DB
-
-export default prisma;

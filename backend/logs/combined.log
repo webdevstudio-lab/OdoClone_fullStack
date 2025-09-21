@@ -1,1 +1,7 @@
-{"level":"info","message":"::1 - - [21/Sep/2025:01:23:02 +0000] \"GET /api HTTP/1.1\" 200 181 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36\"","service":"aquisitions-API","timestamp":"2025-09-21T01:23:02.052Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:49:53 +0000] \"GET /api HTTP/1.1\" 200 181 \"-\" \"PostmanRuntime/7.46.1\"","service":"aquisitions-API","timestamp":"2025-09-21T04:49:53.822Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:50:10 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 127 \"-\" \"PostmanRuntime/7.46.1\"","service":"aquisitions-API","timestamp":"2025-09-21T04:50:10.376Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:51:34 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 127 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:51:34.494Z"}
+{"level":"error","message":"Error creating the user: Error: Oups ! Un compte avec cette addresse email existe deja","service":"odoclone-API","timestamp":"2025-09-21T04:51:54.977Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:51:54 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 95 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:51:54.981Z"}
+{"level":"info","message":"User whith email: franck@gmail4.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:52:27.165Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:52:27 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 166 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:52:27.166Z"}

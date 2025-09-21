@@ -11,6 +11,7 @@
     "#validations/*": "./src/validations/*",
     "#utils/*": "./src/utils/*",
     "#middlewares/*": "./src/middlewares/*",
+    "#database/*": "./src/database/*",
     "#enums/*": "./src/enums/*"
   },
   "scripts": {

@@ -1,13 +1,13 @@
 import winston from 'winston';
 
 const logger = winston.createLogger({
-  level: process.env.LOG_LEVEL || 'info',
+  level: process.env.LOG_LEVEL || 'INFO',
   format: winston.format.combine(
     winston.format.timestamp(),
     winston.format.errors({ stack: true }),
     winston.format.json()
   ),
-  defaultMeta: { service: 'aquisitions-API' },
+  defaultMeta: { service: 'odoclone-API' },
   transports: [
     new winston.transports.File({ filename: 'logs/error.lg', level: 'error' }),
     new winston.transports.File({ filename: 'logs/combined.log' }),
