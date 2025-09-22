@@ -47,6 +47,10 @@ export const loginSchema = z.object({
   userAgent: z.string().optional(),
 });
 
+export const activateSchema = z.object({
+  code: z.string().trim().min(6).max(40),
+});
+
 export const forgotPasswordSchema = z.object({
   email: emailSchema,
 });

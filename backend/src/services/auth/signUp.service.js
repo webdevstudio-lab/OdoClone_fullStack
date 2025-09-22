@@ -6,6 +6,7 @@ import {
 } from '#utils/app-error.js';
 import { ErrorCodeEnum } from '#enums/error-code.enum.js';
 import { hashValue, compareValue } from '#utils/bcrypt.js';
+import { generateCode } from '#utils/generateCode.js';
 
 export const signUpUser = async body => {
   try {
@@ -23,6 +24,9 @@ export const signUpUser = async body => {
       );
     }
 
+    //generate verification code
+    const verificationCode = await generateCode();
+
     //Hash password
     const hashedPassword = await hashValue(password);
 
@@ -33,6 +37,7 @@ export const signUpUser = async body => {
         email,
         password: hashedPassword,
         role,
+        verifCode: verificationCode,
       },
     });
 
@@ -43,6 +48,7 @@ export const signUpUser = async body => {
         name: newUser.name,
         email: newUser.email,
         role: newUser.role,
+        verifCode: newUser.verifCode,
       },
     };
   } catch (e) {
