@@ -24,8 +24,12 @@ export const signUpUser = async body => {
       );
     }
 
+<<<<<<< HEAD:backend/src/services/auth/signUp.service.js
     //generate verification code
     const verificationCode = await generateCode();
+=======
+    //create verification code
+>>>>>>> 108f9f2affecc08e5572d954aabb6e2be9d37d38:backend/src/services/auth.service.js
 
     //Hash password
     const hashedPassword = await hashValue(password);

@@ -18,31 +18,21 @@ model User {
   id       String @id @default(uuid(7))
   email    String @unique @db.VarChar(255)
   name     String @db.VarChar(30)
-  password String @db.VarChar(255)
   role     String @default("user")
+  password String @db.VarChar(255)
 
   createAt  DateTime @default(now()) @db.Timestamp()
   updateAt  DateTime @updatedAt @db.Timestamp()
   verifCode String   @db.VarChar(6)
   isVerify  Boolean  @default(false)
+<<<<<<< HEAD
 
   lastLogin    DateTime @default(now())
   passUpdateAt DateTime @default(now()) @db.Timestamp() //Pour la securité du compte empêche l'utulisation d'un token apres le changement du mot de passe
 
   Session Session[] @relation("userSession")
+=======
+>>>>>>> 108f9f2affecc08e5572d954aabb6e2be9d37d38
 
   @@map("user")
-}
-
-model Session {
-  id           String   @id @default(uuid())
-  createAt     DateTime @default(now()) @db.Timestamp()
-  userAgent    String?  @db.VarChar(255)
-  expiresAt    DateTime @db.Timestamp()
-  refreshToken String   @db.VarChar(255)
-
-  userId      String
-  userSession User   @relation("userSession", fields: [userId], references: [id], onUpdate: Cascade, onDelete: Cascade)
-
-  @@map("session")
 }

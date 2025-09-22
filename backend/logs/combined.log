@@ -5,6 +5,7 @@
 {"level":"info","message":"::1 - - [21/Sep/2025:04:51:54 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 400 95 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:51:54.981Z"}
 {"level":"info","message":"User whith email: franck@gmail4.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:52:27.165Z"}
 {"level":"info","message":"::1 - - [21/Sep/2025:04:52:27 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 166 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:52:27.166Z"}
+<<<<<<< HEAD
 {"level":"error","message":"Error creating the user: ReferenceError: generateCode is not defined","service":"odoclone-API","timestamp":"2025-09-21T21:32:23.305Z"}
 {"level":"info","message":"::1 - - [21/Sep/2025:21:32:23 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 500 73 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T21:32:23.315Z"}
 {"level":"error","message":"Error creating the user: PrismaClientValidationError: \nInvalid `prisma.user.create()` invocation:\n\n{\n  data: {\n    name: \"Admin\",\n    email: \"admin@backend.com\",\n    password: \"$2b$12$QmTL3gdQfZRQrM1thriTVeHlgHrBUw7qTja2BIoyBZsrmhrZB2IiO\",\n    role: \"user\",\n+   verifCode: String\n  }\n}\n\nArgument `verifCode` is missing.","service":"odoclone-API","timestamp":"2025-09-21T21:32:51.176Z"}
@@ -142,3 +143,9 @@
 {"level":"info","message":"::1 - - [22/Sep/2025:02:12:40 +0000] \"POST /api/auth/activate/01996e3b-1d2a-7013-8776-10d77581c937 HTTP/1.1\" 400 90 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-22T02:12:40.536Z"}
 {"level":"info","message":"User whith email: admin@backendZ.com was logged successfully","service":"odoclone-API","timestamp":"2025-09-22T02:14:07.566Z"}
 {"level":"info","message":"::1 - - [22/Sep/2025:02:14:07 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 630 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-22T02:14:07.567Z"}
+=======
+{"level":"info","message":"User whith email: franck@gmail.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:58:22.678Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:58:22 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 165 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:58:22.686Z"}
+{"level":"info","message":"User whith email: admin@backend.com was created successfully","service":"odoclone-API","timestamp":"2025-09-21T04:59:13.994Z"}
+{"level":"info","message":"::1 - - [21/Sep/2025:04:59:13 +0000] \"POST /api/auth/sign-up HTTP/1.1\" 201 165 \"-\" \"PostmanRuntime/7.46.1\"","service":"odoclone-API","timestamp":"2025-09-21T04:59:13.996Z"}
+>>>>>>> 108f9f2affecc08e5572d954aabb6e2be9d37d38
