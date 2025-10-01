@@ -5,12 +5,16 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 
+//INTERNALS IMPORTS
 import envConfig from '#config/env.config.js';
 import { errorHandler } from '#middlewares/errorHandler.middleware.js';
 import { asyncHandler } from '#middlewares/asyncHandler.middleware.js';
 import { HTTPSTATUS } from '#config/http.config.js';
 import logger from '#config/logger.js';
+
+//ROUTES
 import authRoutes from '#routes/auth.routes.js';
+import userRoutes from '#routes/user.routes.js';
 
 const Env = envConfig();
 
@@ -43,10 +47,14 @@ app.get(
   })
 );
 
+//ROUTES
 app.use(`${BASE_PATH}/auth`, authRoutes);
+app.use(`${BASE_PATH}/user`, userRoutes);
 
+//MIDDLEWARES
 app.use(errorHandler);
 
+//START SERVER
 app.listen(Env.PORT, async () => {
   console.log(
     `Server is running on port localhost:${Env.PORT} in ${Env.NODE_ENV} mode`

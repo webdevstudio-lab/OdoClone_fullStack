@@ -9,7 +9,11 @@ import logger from '#config/logger.js';
 import { signUpUser } from '#services/auth/signUp.service.js';
 import { logInUser } from '#services/auth/logIn.service.js';
 import { activateAccount } from '#services/auth/activate.service.js';
-import { setAuthCookies } from '#utils/cookies.js';
+import {
+  setAuthCookies,
+  setNewAcessCookie,
+  clearAllCookies,
+} from '#utils/cookies.js';
 
 //REGISTER A USER
 export const register = asyncHandler(async (req, res, next) => {
@@ -67,4 +71,13 @@ export const login = asyncHandler(async (req, res, next) => {
 
 //LOGOUT A USER
 
-export const logout = asyncHandler(async (req, res, next) => {});
+export const logout = asyncHandler(async (req, res, next) => {
+  //LOGOUT USER LOGIC
+  clearAllCookies(res);
+
+  //RETURN RESPONSE
+  logger.info(`User was sucessfuly logout `);
+  res.status(HTTPSTATUS.CREATED).json({
+    message: "L'utilisateur a été déconnecté avec succès",
+  });
+});

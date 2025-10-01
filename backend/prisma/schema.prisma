@@ -24,15 +24,127 @@ model User {
   createAt  DateTime @default(now()) @db.Timestamp()
   updateAt  DateTime @updatedAt @db.Timestamp()
   verifCode String   @db.VarChar(6)
-  isVerify  Boolean  @default(false)
-<<<<<<< HEAD
+
+  isVerify    Boolean @default(false)
+  isForgetyPw Boolean @default(false)
 
   lastLogin    DateTime @default(now())
   passUpdateAt DateTime @default(now()) @db.Timestamp() //Pour la securité du compte empêche l'utulisation d'un token apres le changement du mot de passe
 
-  Session Session[] @relation("userSession")
-=======
->>>>>>> 108f9f2affecc08e5572d954aabb6e2be9d37d38
-
   @@map("user")
+}
+
+model Client {
+  id       String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  name    String @db.VarChar(255)
+  phone   String @unique @db.VarChar(20)
+  email   String @db.VarChar(255)
+  address String @db.VarChar(255)
+  logo    String @default("No_Logo_Link") @db.VarChar(255)
+
+  devis          Devis[]          @relation("client_devis")
+  facture        Facture[]        @relation("client_facture")
+  bonDeLivraison BonDeLivraison[] @relation("client_bonDeLivraison")
+
+  @@map("client")
+}
+
+model Devis {
+  id       String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  numDevis    String @db.VarChar(255)
+  total       Float  @default(0)
+  description String @db.VarChar(1000)
+
+  clientId    String
+  clientDevis Client       @relation("client_devis", fields: [clientId], references: [id], onUpdate: Cascade, onDelete: NoAction)
+  devisItem   ItemsDevis[] @relation("devisItem")
+
+  @@map("devis")
+}
+
+model Facture {
+  id       String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  numFacture  String @db.VarChar(255)
+  total       Float  @default(0)
+  description String @db.VarChar(1000)
+  etat        String @default("En Attente") @db.VarChar(255)
+  numDevis    String @default("NA") @db.VarChar(255)
+
+  clientId      String
+  clientFacture Client         @relation("client_facture", fields: [clientId], references: [id], onUpdate: Cascade, onDelete: NoAction)
+  factureItem   ItemsFacture[] @relation("factureItem")
+
+  @@map("facture")
+}
+
+model ItemsFacture {
+  itemId   String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  description String
+  quantity    Int
+  unitePrice  Int
+  total       Int
+
+  factureId   String
+  factureItem Facture @relation("factureItem", fields: [factureId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+
+  @@map("itemsFactures")
+}
+
+model ItemsDevis {
+  itemId   String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  description String
+  quantity    Int
+  unitePrice  Int
+  total       Int
+
+  devisId   String
+  devisItem Devis  @relation("devisItem", fields: [devisId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+
+  @@map("itemDevis")
+}
+
+model BonDeLivraison {
+  id       String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  numBon      String @db.VarChar(255)
+  description String @db.VarChar(1000)
+  etat        String @default("En Attente") @db.VarChar(255)
+
+  clientId             String
+  clientBonDeLivraison Client    @relation("client_bonDeLivraison", fields: [clientId], references: [id], onUpdate: Cascade, onDelete: NoAction)
+  blItem               ItemsBl[] @relation("blItem")
+
+  @@map("bonDeLivraison")
+}
+
+model ItemsBl {
+  itemId   String   @id @default(uuid(7))
+  createAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+
+  description String
+  unite       String
+  quantity    Int
+
+  BlId   String
+  blItem BonDeLivraison @relation("blItem", fields: [BlId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+
+  @@map("itemBl")
 }
