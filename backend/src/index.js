@@ -15,6 +15,7 @@ import logger from '#config/logger.js';
 //ROUTES
 import authRoutes from '#routes/auth.routes.js';
 import userRoutes from '#routes/user.routes.js';
+import clientRoutes from '#routes/client.routes.js';
 
 const Env = envConfig();
 
@@ -50,6 +51,7 @@ app.get(
 //ROUTES
 app.use(`${BASE_PATH}/auth`, authRoutes);
 app.use(`${BASE_PATH}/user`, userRoutes);
+app.use(`${BASE_PATH}/client`, clientRoutes);
 
 //MIDDLEWARES
 app.use(errorHandler);

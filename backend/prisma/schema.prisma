@@ -35,12 +35,13 @@ model User {
 }
 
 model Client {
-  id       String   @id @default(uuid(7))
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  id         String   @id @default(uuid(7))
+  codeClient String   @db.VarChar(10)
+  createAt   DateTime @default(now())
+  updateAt   DateTime @updatedAt
 
   name    String @db.VarChar(255)
-  phone   String @unique @db.VarChar(20)
+  phone   String @unique @db.VarChar(14)
   email   String @db.VarChar(255)
   address String @db.VarChar(255)
   logo    String @default("No_Logo_Link") @db.VarChar(255)

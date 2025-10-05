@@ -10,6 +10,12 @@ export const ErrorCodeEnum = {
   AUTH_TOO_MANY_ATTEMPTS: 'AUTH_TOO_MANY_ATTEMPTS',
   AUTH_UNAUTHORIZED_ACCESS: 'AUTH_UNAUTHORIZED_ACCESS',
 
+  //Facture errors
+  FACTURE_NOT_FOUND: 'FACTURE_NOT_FOUND',
+
+  //Devis errors
+  DEVIS_NOT_FOUND: 'DEVIS_NOT_FOUND',
+
   //Access Control Errors
 
   //Validation and Resource Errors
