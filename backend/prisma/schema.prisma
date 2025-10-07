@@ -109,6 +109,7 @@ model ItemsDevis {
   updateAt DateTime @updatedAt
 
   description String
+  unite       String
   quantity    Int
   unitePrice  Int
   total       Int

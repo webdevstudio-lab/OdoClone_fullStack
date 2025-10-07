@@ -12,11 +12,18 @@ export const ErrorCodeEnum = {
 
   //Facture errors
   FACTURE_NOT_FOUND: 'FACTURE_NOT_FOUND',
+  FACTURE_ITEM_NOT_FOUND: 'FACTURE_ITEM_NOT_FOUND',
 
   //Devis errors
   DEVIS_NOT_FOUND: 'DEVIS_NOT_FOUND',
+  DEVIS_ITEM_NOT_FOUND: 'DEVIS_ITEM_NOT_FOUND',
 
-  //Access Control Errors
+  //bonDelivraison errors
+  BL_NOT_FOUND: 'BL_NOT_FOUND',
+  BL_ITEM_NOT_FOUND: 'BL_ITEM_NOT_FOUND',
+
+  //Client Errors
+  CLIENT_NOT_FOUND: 'CLIENT_NOT_FOUND',
 
   //Validation and Resource Errors
   VALIDATION_ERROR: 'VALIDATION_ERROR',

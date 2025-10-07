@@ -16,6 +16,8 @@ import logger from '#config/logger.js';
 import authRoutes from '#routes/auth.routes.js';
 import userRoutes from '#routes/user.routes.js';
 import clientRoutes from '#routes/client.routes.js';
+import devisRoutes from '#routes/devis.routes.js';
+import devisItemRoutes from '#routes/devisItem.routes.js';
 
 const Env = envConfig();
 
@@ -52,6 +54,8 @@ app.get(
 app.use(`${BASE_PATH}/auth`, authRoutes);
 app.use(`${BASE_PATH}/user`, userRoutes);
 app.use(`${BASE_PATH}/client`, clientRoutes);
+app.use(`${BASE_PATH}/devis`, devisRoutes);
+app.use(`${BASE_PATH}/devisitem`, devisItemRoutes);
 
 //MIDDLEWARES
 app.use(errorHandler);

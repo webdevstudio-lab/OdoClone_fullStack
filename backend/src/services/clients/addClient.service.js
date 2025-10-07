@@ -37,7 +37,7 @@ export const addClient = async body => {
       client,
     };
   } catch (e) {
-    logger.error(`Error creating the client: ${e}`);
+    logger.error(`Error creating the devis: ${e}`);
     throw e;
   }
 };
