@@ -3,25 +3,25 @@ import { prisma } from '#database/prisma.config.js';
 import { ErrorCodeEnum } from '#enums/error-code.enum.js';
 import { BadRequestException } from '#utils/app-error.js';
 
-export const getDevis = async devisId => {
+export const getFacture = async factureId => {
   try {
-    if (!devisId) {
+    if (!factureId) {
       throw new BadRequestException(
-        "L'identifiant du devis est manquant ou invalide!",
+        "L'identifiant de la facture est manquant ou invalide!",
         ErrorCodeEnum.DEVIS_NOT_FOUND
       );
     }
 
-    //on verifie si le devis existe
-    const devis = await prisma.devis.findUnique({
-      where: { id: devisId },
+    //on verifie si le facture existe
+    const facture = await prisma.facture.findUnique({
+      where: { id: factureId },
       include: {
-        devisItem: {
+        factureItem: {
           select: {
             itemId: true,
             description: true,
-            unite: true,
             quantity: true,
+            unite: true,
             unitePrice: true,
             total: true,
           },
@@ -29,15 +29,15 @@ export const getDevis = async devisId => {
       },
     });
 
-    if (!devis) {
+    if (!facture) {
       throw new BadRequestException(
-        "Ce devis n'existe pas dans notre base de données!",
-        ErrorCodeEnum.DEVIS_NOT_FOUND
+        "Ce facture n'existe pas dans notre base de données!",
+        ErrorCodeEnum.FACTURE_ITEM_NOT_FOUND
       );
     }
-    return { devis };
+    return { facture };
   } catch (e) {
-    logger.error('Error while fetching devis', e);
+    logger.error('Error while fetching facture', e);
     throw e;
   }
 };

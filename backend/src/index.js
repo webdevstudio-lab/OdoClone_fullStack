@@ -18,6 +18,8 @@ import userRoutes from '#routes/user.routes.js';
 import clientRoutes from '#routes/client.routes.js';
 import devisRoutes from '#routes/devis.routes.js';
 import devisItemRoutes from '#routes/devisItem.routes.js';
+import factureRoutes from '#routes/factures.routes.js';
+import factureItemRoutes from '#routes/factureItem.routes.js';
 
 const Env = envConfig();
 
@@ -56,6 +58,8 @@ app.use(`${BASE_PATH}/user`, userRoutes);
 app.use(`${BASE_PATH}/client`, clientRoutes);
 app.use(`${BASE_PATH}/devis`, devisRoutes);
 app.use(`${BASE_PATH}/devisitem`, devisItemRoutes);
+app.use(`${BASE_PATH}/factures`, factureRoutes);
+app.use(`${BASE_PATH}/factureitem`, factureItemRoutes);
 
 //MIDDLEWARES
 app.use(errorHandler);

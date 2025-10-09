@@ -94,6 +94,7 @@ model ItemsFacture {
 
   description String
   quantity    Int
+  unite       String
   unitePrice  Int
   total       Int
 
