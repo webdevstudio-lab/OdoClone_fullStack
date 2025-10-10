@@ -11,15 +11,16 @@ import { deleteAllFactureItems } from '#services/factures/factureItems/deleteAll
 
 //ADD NEW FACTURE ITEM
 export const addNewFactureItem = asyncHandler(async (req, res, next) => {
-  const body = itemSchema.parse(req.body);
   const factureId = req.params.id;
+  const body = itemSchema.parse(req.body);
+
   //CREATE FACTURE LOGIC
-  const { facture } = await addFactureItems(body, factureId);
+  const { factureItem } = await addFactureItems(factureId, body);
   //RETURN RESPONSE
-  logger.info(`Facture ${facture.codeFacture} created successfully`);
+  logger.info(`Facture  created successfully`);
   res.status(HTTPSTATUS.CREATED).json({
-    message: `La facture a été crée avec le code: ${facture.codeFacture} !`,
-    facture,
+    message: "l'article a été ajouté avec succès!",
+    factureItem,
   });
 });
 
@@ -27,36 +28,37 @@ export const addNewFactureItem = asyncHandler(async (req, res, next) => {
 export const getOneFactureItem = asyncHandler(async (req, res, next) => {
   const factureId = req.params.id;
   //GET ONE FACTURE LOGIC
-  const { facture } = await getFactureItem(factureId);
+  const { factureItem } = await getFactureItem(factureId);
   //RETURN RESPONSE
-  logger.info(`Facture ${facture.codeFacture} was fetched successfully`);
+  logger.info(`Facture was fetched successfully`);
   res.status(HTTPSTATUS.OK).json({
-    facture,
+    factureItem,
   });
 });
 
 //GET ALL FACTURE ITEM
 export const getAllFactureItem = asyncHandler(async (req, res, next) => {
+  const factureId = req.params.id;
   //GET ALL FACTURE LOGIC
-  const { factures } = await getAllFactureItems();
+  const { factureItem } = await getAllFactureItems(factureId);
   //RETURN RESPONSE
   logger.info(`Factures were fetched successfully`);
   res.status(HTTPSTATUS.OK).json({
-    factures,
+    factureItem,
   });
 });
 
 //UPDATE FACTURE ITEM
 export const updateOneFactureItem = asyncHandler(async (req, res, next) => {
-  const factureId = req.params.id;
+  const itemId = req.params.id;
   const body = itemSchema.parse(req.body);
   //UPDATE A FACTURE LOGIC
-  const { facture } = await updateFactureItems(factureId, body);
+  const { updateFactureItem } = await updateFactureItems(itemId, body);
   //RETURN RESPONSE
-  logger.info(`Facture ${factureId} was updated successfully`);
+  logger.info(`Facture  was updated successfully`);
   res.status(HTTPSTATUS.OK).json({
     message: 'La facture a été mis à jour avec succès',
-    facture,
+    updateFactureItem,
   });
 });
 
@@ -66,20 +68,21 @@ export const deleteOneFactureItem = asyncHandler(async (req, res, next) => {
   //DELETE A FACTURE LOGIC
   await deleteFactureItem(factureId);
   //RETURN RESPONSE
-  logger.info(`Facture ${factureId} was deleted successfully`);
+  logger.info(`Facture was deleted successfully`);
   res.status(HTTPSTATUS.OK).json({
-    message: 'La facture a été supprimée avec succès',
+    message: "L'article a été supprimée avec succès",
   });
 });
 
 //DELETE ALL FACTURE ITEM
 
 export const deleteAllFactureItem = asyncHandler(async (req, res, next) => {
+  const factureId = req.params.id;
   //DELETE ALL FACTURE LOGIC
-  await deleteAllFactureItems();
+  await deleteAllFactureItems(factureId);
   //RETURN RESPONSE
   logger.info(`All factures were deleted successfully`);
   res.status(HTTPSTATUS.OK).json({
-    message: 'Toutes les factures ont été supprimées avec succès',
+    message: 'Toutes les ligne de la factures ont été supprimées avec succès',
   });
 });

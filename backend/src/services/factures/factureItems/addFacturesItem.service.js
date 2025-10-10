@@ -6,6 +6,7 @@ import { BadRequestException } from '#utils/app-error.js';
 export const addFactureItems = async (factureId, body) => {
   try {
     const { description, quantity, unitePrice, unite } = body;
+
     if (!factureId) {
       throw new BadRequestException(
         "L'identifiant de  la Facture est manquant ou invalide!",
@@ -20,18 +21,17 @@ export const addFactureItems = async (factureId, body) => {
 
     if (!existingFacture) {
       throw new BadRequestException(
-        "Cette Facture n'existe pas dans notre base de données!",
+        "Cette facture n'existe pas dans notre base de données!",
         ErrorCodeEnum.FACTURE_NOT_FOUND
       );
     }
-
     const factureItem = await prisma.itemsFacture.create({
       data: {
         description,
         quantity,
         unite,
         unitePrice,
-        devisId,
+        factureId,
         total: quantity * unitePrice,
       },
     });

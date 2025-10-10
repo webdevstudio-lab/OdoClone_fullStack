@@ -31,7 +31,7 @@ export const deleteAllFactureItems = async factureId => {
     });
 
     await prisma.itemsFacture.deleteMany({
-      where: { devisId },
+      where: { factureId },
     });
   } catch (e) {
     logger.error(`Error deleting devisItem: ${e}`);

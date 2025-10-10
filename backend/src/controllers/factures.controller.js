@@ -16,7 +16,7 @@ export const addNewFacture = asyncHandler(async (req, res, next) => {
   //CREATE FACTURE LOGIC
   const { facture } = await addFacture(body, clientId);
   //RETURN RESPONSE
-  logger.info(`Facture ${facture.codeFacture} created successfully`);
+  logger.info(`Facture ${facture.numFacture} created successfully`);
   res.status(HTTPSTATUS.CREATED).json({
     message: `La facture a été crée avec le code: ${facture.codeFacture} !`,
     facture,
@@ -39,11 +39,11 @@ export const getOneFacture = asyncHandler(async (req, res, next) => {
 
 export const getAllFacture = asyncHandler(async (req, res, next) => {
   //GET ALL FACTURE LOGIC
-  const { factures } = await getFactures();
+  const { facture } = await getFactures();
   //RETURN RESPONSE
   logger.info(`Factures were fetched successfully`);
   res.status(HTTPSTATUS.OK).json({
-    factures,
+    facture,
   });
 });
 
@@ -71,6 +71,6 @@ export const deleteOneFacture = asyncHandler(async (req, res, next) => {
   //RETURN RESPONSE
   logger.info(`Facture whith ID: ${factureId} was deleted successfully`);
   res.status(HTTPSTATUS.OK).json({
-    message: 'Facture deleted successfully',
+    message: 'La facture a été supprimée avec succès !',
   });
 });

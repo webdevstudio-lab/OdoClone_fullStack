@@ -11,6 +11,19 @@ export const updateFacture = async (factureId, body) => {
         ErrorCodeEnum.FACTURE_NOT_FOUND
       );
     }
+
+    //on verifie si la facture existe
+    const existingFacture = await prisma.facture.findUnique({
+      where: { id: factureId },
+    });
+
+    if (!existingFacture) {
+      throw new BadRequestException(
+        "Cette facture n'existe pas dans notre base de données!",
+        ErrorCodeEnum.FACTURE_NOT_FOUND
+      );
+    }
+
     const facture = await prisma.facture.update({
       where: { id: factureId },
       data: body,

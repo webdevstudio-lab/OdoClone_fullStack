@@ -11,6 +11,19 @@ export const updatedevis = async (devisId, body) => {
         ErrorCodeEnum.DEVIS_NOT_FOUND
       );
     }
+
+    //on verifie si le devis existe
+    const existingDevis = await prisma.devis.findUnique({
+      where: { id: devisId },
+    });
+
+    if (!existingDevis) {
+      throw new BadRequestException(
+        "Ce devis n'existe pas dans notre base de données!",
+        ErrorCodeEnum.DEVIS_NOT_FOUND
+      );
+    }
+
     const devis = await prisma.devis.update({
       where: { id: devisId },
       data: body,
