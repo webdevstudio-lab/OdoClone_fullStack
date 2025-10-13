@@ -1,9 +1,10 @@
 //IMPLEMENTATION 
-    *Bl
-    *jwt access token
+    
     *jwt refresh token
-    *admin & user access
-    *security with arjec
+    *security with arjec / cors/ helmet / 
+    *profile picture
+    *update password secure way
+    
 
 //DOKER
 //FRONTEND

@@ -11,6 +11,7 @@ import { errorHandler } from '#middlewares/errorHandler.middleware.js';
 import { asyncHandler } from '#middlewares/asyncHandler.middleware.js';
 import { HTTPSTATUS } from '#config/http.config.js';
 import logger from '#config/logger.js';
+import { isAuth } from '#middlewares/isAuth.middlewares.js';
 
 //ROUTES
 import authRoutes from '#routes/auth.routes.js';
@@ -56,8 +57,8 @@ app.get(
 
 //ROUTES
 app.use(`${BASE_PATH}/auth`, authRoutes);
-app.use(`${BASE_PATH}/user`, userRoutes);
-app.use(`${BASE_PATH}/client`, clientRoutes);
+app.use(`${BASE_PATH}/user`, isAuth, userRoutes);
+app.use(`${BASE_PATH}/client`, isAuth, clientRoutes);
 app.use(`${BASE_PATH}/devis`, devisRoutes);
 app.use(`${BASE_PATH}/devisitem`, devisItemRoutes);
 app.use(`${BASE_PATH}/factures`, factureRoutes);

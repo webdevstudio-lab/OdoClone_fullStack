@@ -11,6 +11,19 @@ import {
   userPasswordSchema,
 } from '#validations/user.validation.js';
 
+//GET CURRENT USER
+export const getCurrentUser = asyncHandler(async (req, res, next) => {
+  const userId = req.user.id;
+  //GET A USER LOGIC
+  const user = await getUser(userId);
+  //RETURN RESPONSE
+  logger.info(`User whith ID: ${userId} was fetched successfully`);
+  res.status(HTTPSTATUS.OK).json({
+    message: 'User fetched successfully',
+    user,
+  });
+});
+
 //GET A USER BY ID
 export const getOneUser = asyncHandler(async (req, res, next) => {
   const userId = req.params.id;
