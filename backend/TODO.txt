@@ -1,0 +1,9 @@
+//IMPLEMENTATION 
+    *Bl
+    *jwt access token
+    *jwt refresh token
+    *admin & user access
+    *security with arjec
+
+//DOKER
+//FRONTEND

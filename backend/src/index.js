@@ -20,6 +20,8 @@ import devisRoutes from '#routes/devis.routes.js';
 import devisItemRoutes from '#routes/devisItem.routes.js';
 import factureRoutes from '#routes/factures.routes.js';
 import factureItemRoutes from '#routes/factureItem.routes.js';
+import bonLivraisonRoutes from '#routes/bonLivraison.routes.js';
+import bonLivraisonItemRoutes from '#routes/bonLivraisonItem.routes.js';
 
 const Env = envConfig();
 
@@ -60,6 +62,8 @@ app.use(`${BASE_PATH}/devis`, devisRoutes);
 app.use(`${BASE_PATH}/devisitem`, devisItemRoutes);
 app.use(`${BASE_PATH}/factures`, factureRoutes);
 app.use(`${BASE_PATH}/factureitem`, factureItemRoutes);
+app.use(`${BASE_PATH}/bonLivraison`, bonLivraisonRoutes);
+app.use(`${BASE_PATH}/bonLivraisonItem`, bonLivraisonItemRoutes);
 
 //MIDDLEWARES
 app.use(errorHandler);

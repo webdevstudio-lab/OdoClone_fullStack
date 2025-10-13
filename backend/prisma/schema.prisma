@@ -146,8 +146,8 @@ model ItemsBl {
   unite       String
   quantity    Int
 
-  BlId   String
-  blItem BonDeLivraison @relation("blItem", fields: [BlId], references: [id], onUpdate: Cascade, onDelete: Cascade)
+  BonLivId String
+  blItem   BonDeLivraison @relation("blItem", fields: [BonLivId], references: [id], onUpdate: Cascade, onDelete: Cascade)
 
-  @@map("itemBl")
+  @@map("itemsBl")
 }
