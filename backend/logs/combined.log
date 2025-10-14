@@ -288,3 +288,80 @@
 {"level":"info","message":"::1 - - [13/Oct/2025:01:05:33 +0000] \"GET /api/user/all-users HTTP/1.1\" 200 170 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-13T01:05:33.642Z"}
 {"level":"info","message":"User whith ID: 0199a011-2538-72f3-a4b5-6f55446c5db1 was fetched successfully","service":"odoclone-API","timestamp":"2025-10-13T01:05:38.315Z"}
 {"level":"info","message":"::1 - - [13/Oct/2025:01:05:38 +0000] \"GET /api/user/me HTTP/1.1\" 200 203 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-13T01:05:38.316Z"}
+{"level":"error","message":"Error logging  user: PrismaClientValidationError: \nInvalid `prisma.user.update()` invocation:\n\n{\n  where: {\n    id: \"0199a011-2538-72f3-a4b5-6f55446c5db1\"\n  },\n  data: {\n    refreshToken: \"$2b$12$m.QiPI0njysZCHd331SxLeR6yuE7vdyq.OgihItcq9hSE/8mlZBki\",\n    ~~~~~~~~~~~~\n?   id?: String | StringFieldUpdateOperationsInput,\n?   email?: String | StringFieldUpdateOperationsInput,\n?   name?: String | StringFieldUpdateOperationsInput,\n?   role?: String | StringFieldUpdateOperationsInput,\n?   password?: String | StringFieldUpdateOperationsInput,\n?   createAt?: DateTime | DateTimeFieldUpdateOperationsInput,\n?   updateAt?: DateTime | DateTimeFieldUpdateOperationsInput,\n?   verifCode?: String | StringFieldUpdateOperationsInput,\n?   isVerify?: Boolean | BoolFieldUpdateOperationsInput,\n?   refresToken?: String | StringFieldUpdateOperationsInput,\n?   lastLogin?: DateTime | DateTimeFieldUpdateOperationsInput,\n?   passUpdateAt?: DateTime | DateTimeFieldUpdateOperationsInput\n  }\n}\n\nUnknown argument `refreshToken`. Did you mean `refresToken`? Available options are marked with ?.","service":"odoclone-API","timestamp":"2025-10-14T09:01:57.893Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:01:57 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 500 1100 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:01:57.914Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:03:21.092Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:03:21 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:03:21.101Z"}
+{"level":"info","message":"User whith ID: 0199a011-2538-72f3-a4b5-6f55446c5db1 was fetched successfully","service":"odoclone-API","timestamp":"2025-10-14T09:03:50.312Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:03:50 +0000] \"GET /api/user/me HTTP/1.1\" 200 203 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:03:50.316Z"}
+{"level":"info","message":"User whith ID: 0199a011-2538-72f3-a4b5-6f55446c5db1 was fetched successfully","service":"odoclone-API","timestamp":"2025-10-14T09:21:09.096Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:21:09 +0000] \"GET /api/user/me HTTP/1.1\" 200 203 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:21:09.109Z"}
+{"level":"info","message":"User was sucessfuly logout ","service":"odoclone-API","timestamp":"2025-10-14T09:21:17.380Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:21:17 +0000] \"GET /api/auth/logout HTTP/1.1\" 201 61 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:21:17.383Z"}
+{"level":"error","message":"error isAuth invalid access token: Error: Vous devez vous connecter pour accéder à cette ressource","service":"odoclone-API","timestamp":"2025-10-14T09:21:22.395Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:21:22 +0000] \"GET /api/user/me HTTP/1.1\" 400 99 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:21:22.399Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:22:35.863Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:22:35 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:22:35.871Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:23:23.304Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:23:23 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:23:23.307Z"}
+{"level":"info","message":"User was sucessfuly logout ","service":"odoclone-API","timestamp":"2025-10-14T09:27:23.582Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:27:23 +0000] \"GET /api/auth/logout HTTP/1.1\" 201 61 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:27:23.645Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:27:31.516Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:27:31 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:27:31.518Z"}
+{"level":"info","message":"User was sucessfuly logout ","service":"odoclone-API","timestamp":"2025-10-14T09:29:15.772Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:29:15 +0000] \"GET /api/auth/logout HTTP/1.1\" 201 61 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:29:15.780Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:29:24.853Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:29:24 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:29:24.855Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:30:14.671Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:30:14 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:30:14.680Z"}
+{"level":"info","message":"User was sucessfuly logout ","service":"odoclone-API","timestamp":"2025-10-14T09:31:06.290Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:31:06 +0000] \"GET /api/auth/logout HTTP/1.1\" 201 61 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:31:06.307Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:31:11.602Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:31:11 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:31:11.604Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:37:26 +0000] \"POST /api/auth/refresh HTTP/1.1\" 404 156 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:37:26.417Z"}
+{"level":"error","message":"Error verifying token: JsonWebTokenError: secret or public key must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:37:36.693Z"}
+{"level":"error","message":"Error refreshing token: JsonWebTokenError: secret or public key must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:37:36.695Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:37:36 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 83 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:37:36.702Z"}
+{"level":"error","message":"Error verifying token: JsonWebTokenError: secret or public key must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:38:47.334Z"}
+{"level":"error","message":"Error refreshing token: JsonWebTokenError: secret or public key must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:38:47.339Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:38:47 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 83 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:38:47.347Z"}
+{"level":"error","message":"Error verifying token: JsonWebTokenError: secret or public key must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:40:59.151Z"}
+{"level":"error","message":"Error refreshing token: JsonWebTokenError: secret or public key must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:40:59.159Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:40:59 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 83 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:40:59.168Z"}
+{"level":"error","message":"Error verifying token: TokenExpiredError: jwt expired","service":"odoclone-API","timestamp":"2025-10-14T09:41:28.090Z"}
+{"level":"error","message":"Error refreshing token: TokenExpiredError: jwt expired","service":"odoclone-API","timestamp":"2025-10-14T09:41:28.095Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:41:28 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 57 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:41:28.103Z"}
+{"level":"error","message":"Error verifying token: TokenExpiredError: jwt expired","service":"odoclone-API","timestamp":"2025-10-14T09:44:33.504Z"}
+{"level":"error","message":"Error refreshing token: TokenExpiredError: jwt expired","service":"odoclone-API","timestamp":"2025-10-14T09:44:33.511Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:44:33 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 57 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:44:33.520Z"}
+{"level":"info","message":"User was sucessfuly logout ","service":"odoclone-API","timestamp":"2025-10-14T09:44:59.790Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:44:59 +0000] \"GET /api/auth/logout HTTP/1.1\" 201 61 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:44:59.793Z"}
+{"level":"error","message":"Error verifying token: JsonWebTokenError: jwt must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:45:05.570Z"}
+{"level":"error","message":"Error refreshing token: JsonWebTokenError: jwt must be provided","service":"odoclone-API","timestamp":"2025-10-14T09:45:05.571Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:45:05 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 66 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:45:05.573Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:45:19.497Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:45:19 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:45:19.499Z"}
+{"level":"error","message":"Error refreshing token: ReferenceError: req is not defined","service":"odoclone-API","timestamp":"2025-10-14T09:45:23.977Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:45:23 +0000] \"GET /api/auth/refresh HTTP/1.1\" 500 64 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:45:23.981Z"}
+{"level":"error","message":"Error setting auth cookies: ReferenceError: res is not defined","service":"odoclone-API","timestamp":"2025-10-14T09:47:31.873Z"}
+{"level":"error","message":"Error setting auth cookies: ReferenceError: res is not defined","service":"odoclone-API","timestamp":"2025-10-14T09:50:15.518Z"}
+{"level":"info","message":"token was refreshed successfully","service":"odoclone-API","timestamp":"2025-10-14T09:52:05.742Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:52:05 +0000] \"GET /api/auth/refresh HTTP/1.1\" 201 55 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:52:05.752Z"}
+{"level":"error","message":"error isAuth invalid access token: Error: Vous devez vous connecter pour accéder à cette ressource","service":"odoclone-API","timestamp":"2025-10-14T09:52:57.760Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:52:57 +0000] \"GET /api/user/me HTTP/1.1\" 400 99 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:52:57.763Z"}
+{"level":"info","message":"token was refreshed successfully","service":"odoclone-API","timestamp":"2025-10-14T09:53:03.940Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:53:03 +0000] \"GET /api/auth/refresh HTTP/1.1\" 201 55 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:53:03.941Z"}
+{"level":"info","message":"User whith ID: 0199a011-2538-72f3-a4b5-6f55446c5db1 was fetched successfully","service":"odoclone-API","timestamp":"2025-10-14T09:53:07.854Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:53:07 +0000] \"GET /api/user/me HTTP/1.1\" 200 203 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:53:07.855Z"}
+{"level":"info","message":"User whith ID: 0199a011-2538-72f3-a4b5-6f55446c5db1 was fetched successfully","service":"odoclone-API","timestamp":"2025-10-14T09:55:54.212Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:55:54 +0000] \"GET /api/user/me HTTP/1.1\" 200 203 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:55:54.216Z"}
+{"level":"error","message":"error isAuth invalid access token: Error: Vous devez vous connecter pour accéder à cette ressource","service":"odoclone-API","timestamp":"2025-10-14T09:56:02.615Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:56:02 +0000] \"GET /api/user/me HTTP/1.1\" 400 99 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:56:02.617Z"}
+{"level":"error","message":"Error refreshing token: Error: Ce token est invalide. Vous devez vous connecter pour accéder à cette ressource","service":"odoclone-API","timestamp":"2025-10-14T09:56:07.875Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:56:07 +0000] \"GET /api/auth/refresh HTTP/1.1\" 401 125 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:56:07.877Z"}
+{"level":"info","message":"User was sucessfuly logout ","service":"odoclone-API","timestamp":"2025-10-14T09:56:59.238Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:56:59 +0000] \"GET /api/auth/logout HTTP/1.1\" 201 61 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:56:59.241Z"}
+{"level":"info","message":"User whith email: admin@backend.com was logged successfully","service":"odoclone-API","timestamp":"2025-10-14T09:57:05.770Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:57:05 +0000] \"POST /api/auth/sign-in HTTP/1.1\" 201 160 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:57:05.771Z"}
+{"level":"info","message":"token was refreshed successfully","service":"odoclone-API","timestamp":"2025-10-14T09:57:12.339Z"}
+{"level":"info","message":"::1 - - [14/Oct/2025:09:57:12 +0000] \"GET /api/auth/refresh HTTP/1.1\" 201 55 \"-\" \"PostmanRuntime/7.48.0\"","service":"odoclone-API","timestamp":"2025-10-14T09:57:12.340Z"}

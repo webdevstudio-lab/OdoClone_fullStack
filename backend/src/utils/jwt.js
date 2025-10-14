@@ -46,3 +46,13 @@ export const generateRefreshToken = async Id => {
     throw e;
   }
 };
+
+export const verifyRefreshToken = async token => {
+  try {
+    const payload = jwt.verify(token, Env.JWT_SECRET_REFRESH);
+    return { payload };
+  } catch (e) {
+    logger.error(`Error verifying token: ${e}`);
+    throw e;
+  }
+};

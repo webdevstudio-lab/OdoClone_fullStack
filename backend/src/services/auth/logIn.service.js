@@ -5,7 +5,7 @@ import {
   UnauthorizedException,
 } from '#utils/app-error.js';
 import { ErrorCodeEnum } from '#enums/error-code.enum.js';
-import { compareValue } from '#utils/bcrypt.js';
+import { compareValue, hashValue } from '#utils/bcrypt.js';
 import { generateAccessToken, generateRefreshToken } from '#utils/jwt.js';
 
 export const logInUser = async body => {
@@ -47,6 +47,14 @@ export const logInUser = async body => {
     //generate token
     const token = await generateAccessToken(ExistingUser.id, ExistingUser.role);
     const refreshToken = await generateRefreshToken(ExistingUser.id);
+
+    //Hash refresh token
+    const hashedRefreshToken = await hashValue(refreshToken);
+    //update refresh token
+    await prisma.user.update({
+      where: { id: ExistingUser.id },
+      data: { refresToken: hashedRefreshToken },
+    });
 
     //return user
     return {

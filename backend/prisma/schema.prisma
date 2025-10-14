@@ -26,7 +26,7 @@ model User {
   verifCode String   @db.VarChar(6)
 
   isVerify    Boolean @default(false)
-  isForgetyPw Boolean @default(false)
+  refresToken String  @default("value") @db.VarChar(200)
 
   lastLogin    DateTime @default(now())
   passUpdateAt DateTime @default(now()) @db.Timestamp() //Pour la securité du compte empêche l'utulisation d'un token apres le changement du mot de passe

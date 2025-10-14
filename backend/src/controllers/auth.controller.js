@@ -9,6 +9,7 @@ import logger from '#config/logger.js';
 import { signUpUser } from '#services/auth/signUp.service.js';
 import { logInUser } from '#services/auth/logIn.service.js';
 import { activateAccount } from '#services/auth/activate.service.js';
+import { refreshToken } from '#services/auth/refreshToken.service.js';
 import {
   setAuthCookies,
   setNewAcessCookie,
@@ -65,7 +66,11 @@ export const login = asyncHandler(async (req, res, next) => {
   logger.info(`User whith email: ${user.email} was logged successfully`);
   res.status(HTTPSTATUS.CREATED).json({
     message: "L'utilisateur a été connecté avec succès",
-    user,
+    user: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    },
   });
 });
 
@@ -79,5 +84,23 @@ export const logout = asyncHandler(async (req, res, next) => {
   logger.info(`User was sucessfuly logout `);
   res.status(HTTPSTATUS.CREATED).json({
     message: "L'utilisateur a été déconnecté avec succès",
+  });
+});
+
+//REFRESH TOKEN
+
+export const refToken = asyncHandler(async (req, res, next) => {
+  const token = req.cookies._odooClone_Refresh_Token;
+
+  //REFRESH TOKEN LOGIC
+  const { accessToken } = await refreshToken(token);
+
+  //SET NEW ACCESS TOKEN
+  setNewAcessCookie(res, accessToken);
+
+  //RETURN RESPONSE
+  logger.info(`token was refreshed successfully`);
+  res.status(HTTPSTATUS.CREATED).json({
+    message: 'Le token a été mis à jour avec succès',
   });
 });

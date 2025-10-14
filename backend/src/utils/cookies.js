@@ -32,7 +32,7 @@ export const setAuthCookies = async (res, accessToken, refreshToken) => {
   }
 };
 
-export const setNewAcessCookie = async accessToken => {
+export const setNewAcessCookie = async (res, accessToken) => {
   try {
     res.cookie('_odooClone_Access_Token', accessToken, accessTokentOptions);
   } catch (e) {
