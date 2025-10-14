@@ -1,6 +1,5 @@
 //IMPLEMENTATION 
-    
-    *security with arjec / cors/ helmet / 
+
     *profile picture
     *update password secure way
     

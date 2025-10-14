@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
+import { xss } from 'express-xss-sanitizer';
+import rateLimit from 'express-rate-limit';
 import morgan from 'morgan';
 
 //INTERNALS IMPORTS
@@ -29,11 +31,26 @@ const Env = envConfig();
 const app = express();
 const BASE_PATH = Env.BASE_PATH;
 
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+  handler: (req, res) => {
+    console.warn(`Rate limit exceeded by IP : ${req.ip}`);
+    res.status(HTTPSTATUS.TOO_MANY_REQUESTS).json({
+      message: 'Too many requests, please try again later',
+    });
+  },
+});
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: Env.FRONTEND_ORIGIN, credentials: true }));
+app.use(xss());
 app.use(helmet());
 app.use(cookieParser());
+app.use(limiter);
 app.use(
   morgan('combined', {
     stream: { write: message => logger.info(message.trim()) },
