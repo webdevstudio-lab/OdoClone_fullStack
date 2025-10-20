@@ -5,10 +5,16 @@ const Env = envConfig();
 
 export const REFRESH_PATH = `${Env.BASE_PATH}/auth/refresh`;
 
+// const defaults = {
+//   httpOnly: true,
+//   secure: Env.NODE_ENV === 'production' ? true : false,
+//   sameSite: Env.NODE_ENV === 'production' ? 'strict' : 'lax',
+// };
+
 const defaults = {
   httpOnly: true,
-  secure: Env.NODE_ENV === 'production' ? true : false,
-  sameSite: Env.NODE_ENV === 'production' ? 'strict' : 'lax',
+  secure: true,
+  sameSite: 'strict',
 };
 
 const accessTokentOptions = {
@@ -19,7 +25,7 @@ const accessTokentOptions = {
 const refreshTokentOptions = {
   ...defaults,
   expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-  path: REFRESH_PATH,
+  // path: REFRESH_PATH,
 };
 
 export const setAuthCookies = async (res, accessToken, refreshToken) => {

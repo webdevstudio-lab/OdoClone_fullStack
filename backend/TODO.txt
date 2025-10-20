@@ -6,3 +6,14 @@
 
 //DOKER
 //FRONTEND
+
+
+dbHost: dpg-d3p5ovpr0fns73e34j80-a
+name : odooclonedatabase
+user : odooclonedatabase_user
+password: PqapmrCkyiknwhS83wREkDnmt04JmC5o
+iternaleUre : postgresql://odooclonedatabase_user:PqapmrCkyiknwhS83wREkDnmt04JmC5o@dpg-d3p5ovpr0fns73e34j80-a/odooclonedatabase?schema=public
+
+
+
+postgresql://neondb_owner:npg_yjW6M3vDOlZX@ep-dry-mouse-ad3bk3vq-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
