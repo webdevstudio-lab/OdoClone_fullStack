@@ -3,7 +3,7 @@ import React from 'react';
 const DashboardLayout = ({ children }) => {
   return (
     <div>
-      DashboardLayout
+      <h1>Dashboard Layout</h1>
       <div>{children}</div>
     </div>
   );

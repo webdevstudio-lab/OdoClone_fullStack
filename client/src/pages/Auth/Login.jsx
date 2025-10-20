@@ -1,12 +1,13 @@
 import LoginForm from '../../components/auth/LoginForm';
+import Logo from '../../components/layout/Logo';
 
 const Login = () => {
   return (
     <>
       <div className="w-full">
         <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 ">
-          {/* <Logo /> */}
-          <div className="flex flex-col items-center mb-8">
+          <Logo />
+          <div className="flex flex-col items-center mb-8 mt-5">
             <p className="text-blue-950 text-2xl font-bold items-center ">
               Connexion à votre compte
             </p>
