@@ -226,7 +226,7 @@ const SignUp = () => {
             Vous avez déja un compte ?{" "}
             <button
               className="text-primary hover:underline text-base cursor-pointer dark:text-[#f1f7feb5]"
-              onClick={() => (window.location.href = "/")}
+              onClick={() => (window.location.href = "/connexion")}
             >
               Se connecter
             </button>
