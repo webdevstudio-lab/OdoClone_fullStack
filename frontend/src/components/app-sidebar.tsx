@@ -21,48 +21,50 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-
-const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: IconDashboard,
-    },
-    {
-      title: "Clients",
-      url: "/clients",
-      icon: IconUser,
-    },
-    {
-      title: "Devis",
-      url: "/devis",
-      icon: IconListDetails,
-    },
-    {
-      title: "Factures",
-      url: "/factures",
-      icon: IconChartBar,
-    },
-    {
-      title: "Bons de livraison",
-      url: "/bons-de-livraison",
-      icon: IconFolder,
-    },
-    {
-      title: "Team",
-      url: "#",
-      icon: IconUsers,
-    },
-  ],
-};
+import { useUser } from "@/hooks/useUser";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { currentUser } = useUser();
+  const data = {
+    user: {
+      name: currentUser?.user.name,
+      email: currentUser?.user.email,
+      avatar: "/avatars/shadcn.jpg",
+    },
+    navMain: [
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+        icon: IconDashboard,
+      },
+      {
+        title: "Clients",
+        url: "/clients",
+        icon: IconUser,
+      },
+      {
+        title: "Devis",
+        url: "/devis",
+        icon: IconListDetails,
+      },
+      {
+        title: "Factures",
+        url: "/factures",
+        icon: IconChartBar,
+      },
+      {
+        title: "Bons de livraison",
+        url: "/bon-de-livraison",
+        icon: IconFolder,
+      },
+      {
+        title: "Team",
+        url: "/team",
+        icon: IconUsers,
+      },
+    ],
+  };
+
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>

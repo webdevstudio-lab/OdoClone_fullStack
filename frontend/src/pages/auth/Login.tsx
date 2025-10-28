@@ -28,17 +28,19 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-  InputGroupText,
 } from "@/components/ui/input-group";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { setNavigate } from "@/lib/navigation";
 const Login = () => {
   const { login, isLoggingIn } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+  setNavigate(navigate);
 
   const fromSchema = z.object({
     email: z
@@ -61,9 +63,6 @@ const Login = () => {
   const onSubmit = (data: z.infer<typeof fromSchema>) => {
     if (isLoggingIn) return;
     login(data);
-    setTimeout(() => {
-      window.location.href = "/dashboard";
-    }, 2000);
   };
 
   return (
@@ -93,7 +92,11 @@ const Login = () => {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="Entrez votre email" {...field} />
+                        <Input
+                          placeholder="Entrez votre email"
+                          className="border-gray-300 border-2 rounded-md"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -107,7 +110,7 @@ const Login = () => {
                     <FormItem>
                       <FormLabel>Mot de passe</FormLabel>
                       <FormControl>
-                        <InputGroup>
+                        <InputGroup className="border-gray-300 border-2 rounded-md">
                           <InputGroupInput
                             placeholder="mot de passe"
                             type={showPassword ? "text" : "password"}

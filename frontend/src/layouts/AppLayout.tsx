@@ -1,12 +1,24 @@
-import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { AppSidebar } from "@/components/app-sidebar";
-import { SectionCards } from "@/components/section-cards";
 import { SiteHeader } from "@/components/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { useUser } from "@/hooks/useUser";
+import { useEffect } from "react";
+import { Loader2 } from "lucide-react";
 
 const AppLayout = () => {
-  return (
+  const { isCheckingAuth, currentUser, getUser } = useUser();
+  useEffect(() => {
+    getUser();
+  }, [getUser]);
+  return isCheckingAuth ? (
+    <div className="flex h-screen w-full flex-col items-center justify-center">
+      <div className="flex flex-row items-center justify-center gap-2">
+        <Loader2 className="animate-spin text-2xl text-primary" />
+        <p className="font-bold text-slate-500">Chargement des données...</p>
+      </div>
+    </div>
+  ) : currentUser ? (
     <SidebarProvider
       style={
         {
@@ -27,6 +39,8 @@ const AppLayout = () => {
         </div>
       </SidebarInset>
     </SidebarProvider>
+  ) : (
+    <Navigate to="/connexion" />
   );
 };
 

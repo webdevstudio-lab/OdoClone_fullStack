@@ -1,6 +1,8 @@
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import Horloge from "./Horloge";
+import { useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
 
 export function SiteHeader() {
   return (

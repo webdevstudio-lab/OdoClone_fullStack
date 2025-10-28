@@ -28,14 +28,12 @@ import {
   InputGroupAddon,
   InputGroupButton,
   InputGroupInput,
-  InputGroupText,
 } from "@/components/ui/input-group";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Spinner } from "@/components/ui/spinner";
 
 const SignUp = () => {
   const { register, isSigningUp } = useAuth();
@@ -97,7 +95,11 @@ const SignUp = () => {
                     <FormItem>
                       <FormLabel>Nom</FormLabel>
                       <FormControl>
-                        <Input placeholder="Entrez votre nom" {...field} />
+                        <Input
+                          placeholder="Entrez votre nom"
+                          {...field}
+                          className="border-gray-300 border-2 rounded-md"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -113,6 +115,7 @@ const SignUp = () => {
                       <FormControl>
                         <Input
                           placeholder="Entrez votre addresse email"
+                          className="border-gray-300 border-2 rounded-md"
                           {...field}
                         />
                       </FormControl>
@@ -128,7 +131,7 @@ const SignUp = () => {
                     <FormItem>
                       <FormLabel>Mot de passe</FormLabel>
                       <FormControl>
-                        <InputGroup>
+                        <InputGroup className="border-gray-300 border-2 rounded-md">
                           <InputGroupInput
                             placeholder="mot de passe"
                             type={showPassword ? "text" : "password"}
@@ -169,7 +172,7 @@ const SignUp = () => {
                     <FormItem>
                       <FormLabel>Confirmer le mot de passe</FormLabel>
                       <FormControl>
-                        <InputGroup>
+                        <InputGroup className="border-gray-300 border-2 rounded-md">
                           <InputGroupInput
                             placeholder="mot de passe"
                             type={showPassword ? "text" : "password"}
