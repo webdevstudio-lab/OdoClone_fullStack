@@ -4,6 +4,7 @@ import { UnauthorizedException } from '#utils/app-error.js';
 import { ErrorCodeEnum } from '#enums/error-code.enum.js';
 import { compareValue } from '#utils/bcrypt.js';
 import { generateAccessToken, verifyRefreshToken } from '#utils/jwt.js';
+import { logout } from '#controllers/auth.controller.js';
 
 //refresh token
 export const refreshToken = async token => {

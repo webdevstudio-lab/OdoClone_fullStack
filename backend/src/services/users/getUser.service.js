@@ -17,6 +17,7 @@ export const getUser = async userId => {
         id: true,
         name: true,
         email: true,
+        isVerify: true,
         role: true,
         createAt: true,
       },

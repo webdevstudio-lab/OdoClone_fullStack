@@ -52,4 +52,4 @@ export const clearAuthaccessCookies = res => res.clearCookie('');
 export const clearAllCookies = res =>
   res
     .clearCookie('_odooClone_Access_Token')
-    .clearCookie('_odooClone_Refresh_Token', { path: REFRESH_PATH });
+    .clearCookie('_odooClone_Refresh_Token');

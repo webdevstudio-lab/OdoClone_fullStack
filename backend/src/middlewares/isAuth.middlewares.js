@@ -1,10 +1,6 @@
 import logger from '#config/logger.js';
 import { prisma } from '#database/prisma.config.js';
-import {
-  BadRequestException,
-  NotFoundException,
-  UnauthorizedException,
-} from '#utils/app-error.js';
+import { UnauthorizedException } from '#utils/app-error.js';
 import { ErrorCodeEnum } from '#enums/error-code.enum.js';
 import jwt from 'jsonwebtoken';
 
@@ -12,9 +8,9 @@ export const isAuth = async (req, res, next) => {
   try {
     const token = req.cookies._odooClone_Access_Token;
     if (!token) {
-      throw new BadRequestException(
+      throw new UnauthorizedException(
         'Vous devez vous connecter pour accéder à cette ressource',
-        ErrorCodeEnum.AUTH_TOKEN_NOT_FOUND
+        ErrorCodeEnum.AUTH_INVALID_TOKEN
       );
     }
 
@@ -39,7 +35,7 @@ export const isAuth = async (req, res, next) => {
     });
 
     if (!user) {
-      throw new NotFoundException(
+      throw new UnauthorizedException(
         "cette utilisateur n'existe pas dans notre base de données",
         ErrorCodeEnum.AUTH_USER_NOT_FOUND
       );

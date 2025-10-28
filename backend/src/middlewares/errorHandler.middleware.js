@@ -8,7 +8,7 @@ const formatZodErrors = (res, error) => {
     message: err.message,
   }));
   return res.status(HTTPSTATUS.BAD_REQUEST).json({
-    message: 'Erreur de validation des données envoyées',
+    message: 'Veuillez remplir correctement tous les champs !',
     errors: errors,
   });
 };
