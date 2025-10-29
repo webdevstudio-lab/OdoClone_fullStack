@@ -34,9 +34,9 @@ export const signupSchema = z
       .max(30, { message: 'Le nom doit avoir au maximum 30 caractères' }),
     email: emailSchema,
     password: registerPasswordSchema,
-    confirmpassword: passwordSchema,
+    confirmPassword: passwordSchema,
   })
-  .refine(data => data.password === data.confirmpassword, {
+  .refine(data => data.password === data.confirmPassword, {
     message: 'Les mots de passe ne correspondent pas',
     path: ['confirmpassword'],
   });
