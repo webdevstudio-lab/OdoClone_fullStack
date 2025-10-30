@@ -4,13 +4,15 @@
 @theme {
   --font-display: "Montserrat", sans-serif;
   --breakpoint-3xl: 1920px;
-  --color-primary: #ff9324;
+  --color-primary: #4f39f6;
+  --color-secondary: #101828;
 }
 
 @layer base {
   html {
     font-family: var(--font-display);
   }
+
   body {
     background: #fcfbfc;
   }

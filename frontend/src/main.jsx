@@ -17,12 +17,42 @@ createRoot(document.getElementById("root")).render(
       <ReactQueryDevtools initialIsOpen={false} />
 
       <Toaster
+        position="top-right"
+        gutter={0}
+        containerStyle={{ margin: "8px" }}
         toastOptions={{
-          duration: 4000,
-          style: {
-            fontSize: "13px",
+          success: {
+            duration: 3000,
+            style: {
+              backgroundColor: "#37B56B",
+              borderLeft: "10px solid #2BA05A",
+              color: "white",
+              fontWeight: "semi-bold",
+            },
           },
-          className: "",
+          info: {
+            duration: 3000,
+            style: {
+              backgroundColor: "#00A6F4",
+              borderLeft: "10px solid #1447e6",
+              color: "white",
+              fontWeight: "semi-bold",
+            },
+          },
+          error: {
+            duration: 4000,
+            style: {
+              backgroundColor: "#ef4444",
+              borderLeft: "10px solid #CC001F",
+              color: "white",
+              fontWeight: "semi-bold",
+            },
+          },
+          style: {
+            fontSize: "1rem",
+            maxWidth: "500px",
+            padding: "16px 24px",
+          },
         }}
       />
     </QueryClientProvider>
