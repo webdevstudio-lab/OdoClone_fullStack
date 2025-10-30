@@ -39,14 +39,13 @@ export const register = asyncHandler(async (req, res, next) => {
 
 export const activate = asyncHandler(async (req, res, next) => {
   const userId = req.params.id;
-  const body = activateSchema.parse(req.body);
+  const code = activateSchema.parse(req.body);
 
   //ACTIVATE USER ACCOUNT LOGIC
-  const { user } = await activateAccount(userId, body);
+  const { user } = await activateAccount(userId, code);
 
   //SEND A CONFIRMATION EMAIL
-
-  logger.info(`Account whith ID: ${user.id} was successfully activated`);
+  // logger.info(`Account whith ID: ${user.id} was successfully activated`);
   res.status(HTTPSTATUS.CREATED).json({
     message: 'Le compte a été activé avec succès',
   });

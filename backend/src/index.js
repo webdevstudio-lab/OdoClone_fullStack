@@ -46,7 +46,14 @@ const limiter = rateLimit({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors({ origin: Env.FRONTEND_ORIGIN, credentials: true }));
+app.use(
+  cors({
+    origin: Env.FRONTEND_ORIGIN,
+    credentials: true,
+    methods: ['GET', 'POST', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  })
+);
 app.use(xss());
 app.use(helmet());
 app.use(cookieParser());
