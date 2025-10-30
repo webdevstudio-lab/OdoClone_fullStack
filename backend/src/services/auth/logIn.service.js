@@ -38,35 +38,47 @@ export const logInUser = async body => {
     const isActivated = ExistingUser.isVerify;
 
     if (!isActivated) {
-      throw new UnauthorizedException(
-        "Votre compte n'est pas encore activé , nous vous avons envoyé un mail contenant le lien d'activation de votre compte",
-        ErrorCodeEnum.AUTH_UNAUTHORIZED_ACCESS
+      //return user
+      return {
+        user: {
+          id: ExistingUser.id,
+          name: ExistingUser.name,
+          email: ExistingUser.email,
+          role: ExistingUser.role,
+          isVerify: ExistingUser.isVerify,
+          token: 'null',
+          refreshToken: 'null',
+        },
+      };
+    } else {
+      //generate token
+      const token = await generateAccessToken(
+        ExistingUser.id,
+        ExistingUser.role
       );
+      const refreshToken = await generateRefreshToken(ExistingUser.id);
+
+      //Hash refresh token
+      const hashedRefreshToken = await hashValue(refreshToken);
+      //update refresh token
+      await prisma.user.update({
+        where: { id: ExistingUser.id },
+        data: { refresToken: hashedRefreshToken },
+      });
+
+      //return user
+      return {
+        user: {
+          id: ExistingUser.id,
+          name: ExistingUser.name,
+          email: ExistingUser.email,
+          role: ExistingUser.role,
+          isVerify: ExistingUser.isVerify,
+          token,
+          refreshToken,
+        },
+      };
     }
-
-    //generate token
-    const token = await generateAccessToken(ExistingUser.id, ExistingUser.role);
-    const refreshToken = await generateRefreshToken(ExistingUser.id);
-
-    //Hash refresh token
-    const hashedRefreshToken = await hashValue(refreshToken);
-    //update refresh token
-    await prisma.user.update({
-      where: { id: ExistingUser.id },
-      data: { refresToken: hashedRefreshToken },
-    });
-
-    //return user
-    return {
-      user: {
-        id: ExistingUser.id,
-        name: ExistingUser.name,
-        email: ExistingUser.email,
-        role: ExistingUser.role,
-        token,
-        refreshToken,
-      },
-    };
   } catch (e) {
     logger.error(`Error logging  user: ${e}`);
     throw e;

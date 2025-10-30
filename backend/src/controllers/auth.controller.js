@@ -28,7 +28,7 @@ export const register = asyncHandler(async (req, res, next) => {
   //SEND VERIFICATON CODE BY EMAIL
 
   //RETURN RESPONSE
-  logger.info(`User whith email: ${user.email} was created successfully`);
+  // logger.info(`User whith email: ${user.email} was created successfully`);
   res.status(HTTPSTATUS.CREATED).json({
     message: "L'utilisateur a été créé avec succès",
     user,
@@ -62,13 +62,17 @@ export const login = asyncHandler(async (req, res, next) => {
   //SET COOKIES
   setAuthCookies(res, user.token, user.refreshToken);
 
-  logger.info(`User whith email: ${user.email} was logged successfully`);
+  // logger.info(`User whith email: ${user.email} was logged successfully`);
   res.status(HTTPSTATUS.CREATED).json({
     message: "L'utilisateur a été connecté avec succès",
     user: {
       id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role,
+      isVerify: user.isVerify,
+      token: user.token,
+      refreshToken: user.refreshToken,
     },
   });
 });
@@ -80,7 +84,7 @@ export const logout = asyncHandler(async (req, res, next) => {
   clearAllCookies(res);
 
   //RETURN RESPONSE
-  logger.info(`User was sucessfuly logout `);
+  // logger.info(`User was sucessfuly logout `);
   res.status(HTTPSTATUS.CREATED).json({
     message: "L'utilisateur a été déconnecté avec succès",
   });
@@ -98,7 +102,7 @@ export const refToken = asyncHandler(async (req, res, next) => {
   setNewAcessCookie(res, accessToken);
 
   //RETURN RESPONSE
-  logger.info(`token was refreshed successfully`);
+  // logger.info(`token was refreshed successfully`);
   res.status(HTTPSTATUS.CREATED).json({
     message: 'Le token a été mis à jour avec succès',
   });
