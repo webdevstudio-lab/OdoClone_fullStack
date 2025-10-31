@@ -1,8 +1,0 @@
-{"level":"error","message":"Error logging  user: Error: Oups ! l'email ou le mot de passe est incorrect","service":"odoclone-API","timestamp":"2025-10-30T17:56:00.186Z"}
-{"level":"error","message":"Error logging  user: Error: Oups ! l'email ou le mot de passe est incorrect","service":"odoclone-API","timestamp":"2025-10-30T17:56:08.733Z"}
-{"level":"error","message":"Error logging  user: Error: Oups ! l'email ou le mot de passe est incorrect","service":"odoclone-API","timestamp":"2025-10-30T18:03:28.628Z"}
-{"level":"error","message":"Error logging  user: Error: Votre compte n'est pas encore activé , nous vous avons envoyé un mail contenant le lien d'activation de votre compte","service":"odoclone-API","timestamp":"2025-10-30T18:03:35.669Z"}
-{"level":"error","message":"Error logging  user: Error: Votre compte n'est pas encore activé , nous vous avons envoyé un mail contenant le lien d'activation de votre compte","service":"odoclone-API","timestamp":"2025-10-30T18:03:55.858Z"}
-{"level":"error","message":"Error logging  user: Error: Votre compte n'est pas encore activé , nous vous avons envoyé un mail contenant le lien d'activation de votre compte","service":"odoclone-API","timestamp":"2025-10-30T18:05:04.324Z"}
-{"level":"error","message":"Error logging  user: Error: Votre compte n'est pas encore activé , nous vous avons envoyé un mail contenant le lien d'activation de votre compte","service":"odoclone-API","timestamp":"2025-10-30T18:06:10.058Z"}
-{"level":"error","message":"Error logging  user: Error: Votre compte n'est pas encore activé , nous vous avons envoyé un mail contenant le lien d'activation de votre compte","service":"odoclone-API","timestamp":"2025-10-30T18:06:13.468Z"}
