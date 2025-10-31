@@ -100,7 +100,7 @@ const Activate = () => {
         <div className="w-full max-w-md ">
           {/* Header of Page */}
           <div className="text-center mb-8 p-4 rounded-md flex flex-col gap-4 items-center">
-            <div className="w-12 h-12 bg-gradient-to-t from-indigo-600 to to-indigo-700 rounded-md flex items-center justify-center">
+            <div className="w-12 h-12 bg-linear-to-t from-indigo-500 to to-indigo-700 rounded-md flex items-center justify-center">
               <Fingerprint className="text-white" size={30} />{" "}
             </div>
 
@@ -139,6 +139,7 @@ const Activate = () => {
                   maxLength={6}
                   onChange={handleInputChange}
                   onBlur={handleBlur}
+                  onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
                   value={formData.code}
                   placeholder="Entrez le code d'activation"
                   className={`pl-12 h-12 w-full rounded-md bg-white px-3 py-1.5 text-lg text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-lg

@@ -1,5 +1,6 @@
+import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import toast from "react-hot-toast";
+import { navigate } from "./navigate";
 
 const options = {
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -29,12 +30,15 @@ API.interceptors.response.use(
     }
 
     //try to refresh token behind the scene
-    if (status === 401 && data?.errorCode === "AUTH_TOKEN_NOT_FOUND") {
+    if (status === 401 && error.code === "ERR_BAD_REQUEST") {
       try {
         await APIRefreshClient.get("/auth/refresh");
         return APIRefreshClient(config);
       } catch (error) {
-        window.location.href = "/";
+        QueryClient.clear();
+        navigate("/login", {
+          state: { redirectUrl: window.location.pathname },
+        });
       }
     }
     return Promise.reject({ ...data, status });

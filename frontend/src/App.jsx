@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./pages/Auth/Login";
 import SignUp from "./pages/Auth/SignUp";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -11,16 +11,65 @@ import Factures from "./pages/Factures/Factures";
 import Client from "./pages/Clients/Client";
 import UserProfile from "./pages/Profile/UserProfile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import PublicRoute from "./components/PublicRoute";
+import { setNavigate } from "./utils/navigate";
 
 const App = () => {
+  const navigate = useNavigate();
+  setNavigate(navigate);
   return (
     <Routes>
+      {/* redirection de la racine vers le dashboard  */}
+      <Route
+        path="/"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Public routes */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/sign-up" element={<SignUp />} />
-      <Route path="/activate/:id" element={<Activate />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset-password/:id" element={<ResetPassord />} />
+      <Route
+        path="/login"
+        element={
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/sign-up"
+        element={
+          <PublicRoute>
+            <SignUp />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/activate/:id"
+        element={
+          <PublicRoute>
+            <Activate />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/forgot-password"
+        element={
+          <PublicRoute>
+            <ForgotPassword />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/reset-password/:id"
+        element={
+          <PublicRoute>
+            <ResetPassord />
+          </PublicRoute>
+        }
+      />
 
       {/* Protected routes */}
       <Route path="/" element={<ProtectedRoute />}>

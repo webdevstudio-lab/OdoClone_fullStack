@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { validateEmail, validatePassword } from "../../utils/helper";
 import { useMutation } from "@tanstack/react-query";
@@ -14,14 +14,16 @@ import {
   Mail,
   Info,
 } from "lucide-react";
+import Logo from "../../Layout/Logo";
 
 const Login = () => {
+  const location = useLocation();
   const navigate = useNavigate();
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const redirectUrl = location.state?.pathname || "/dashboard";
 
   const {
     mutate: loginMutation,
@@ -37,7 +39,7 @@ const Login = () => {
         navigate(`/activate/${data.data.user.id}`, { replace: true });
       } else {
         toast.success(data.data.message);
-        navigate("/", { replace: true });
+        navigate(redirectUrl, { replace: true });
       }
     },
     onError: (error) => {
@@ -118,9 +120,7 @@ const Login = () => {
       <div className="w-full max-w-md ">
         {/* Header of Page */}
         <div className="text-center mb-8 p-4 rounded-md flex flex-col gap-4 items-center">
-          <div className="w-12 h-12 bg-gradient-to-t from-indigo-600 to to-indigo-700 rounded-md flex items-center justify-center">
-            <Fingerprint className="text-white" size={30} />{" "}
-          </div>
+          <Logo />
 
           <div className="flex flex-col items-center justify-center gap-4">
             <h1 className="text-4xl text-indigo-600 font-bold">Connexion</h1>
@@ -199,7 +199,7 @@ const Login = () => {
                 name="password"
                 placeholder="••••••••••••••"
                 required
-                onKeyDown={(e) => e.key === "Enter"}
+                onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
                 onChange={handleInputChange}
                 onBlur={handleBlur}
                 value={formData.password}
